@@ -11,3 +11,6 @@ allow update_engine labeledfs:filesystem { mount unmount };
 # Allow transition to backuptool domain
 allow update_engine self:process setexec;
 domain_trans(update_engine, otapreopt_chroot_exec, backuptool)
+
+# Allow Updater_Engine to be found
+allow update_engine_service update_engine_service:service_manager { find };
